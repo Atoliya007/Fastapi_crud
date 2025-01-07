@@ -2,15 +2,12 @@ from sqlalchemy import Boolean, Column ,Integer,String,DateTime,func
 from database import Base
 from sqlalchemy import *
 
-# from datetime import datetime
-# import datetime
-
-
 class User(Base):
     __tablename__ = 'users'
 
     id = Column(Integer,primary_key=True, index=True)
     username = Column(String(50),unique=True)
+    hashed_password =Column(String)
 
 class Post(Base):
     __tablename__ = 'posts'
@@ -29,4 +26,3 @@ class Post(Base):
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
     deleted = Column(Boolean, default=False)
 
-    

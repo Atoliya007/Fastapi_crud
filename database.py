@@ -5,7 +5,7 @@ from datetime import datetime
 
 URL_DATABASE = "mysql+pymysql://root:Root%401234@localhost:3306/BlogApplication"
 
-engine = create_engine(URL_DATABASE)
+engine = create_engine(URL_DATABASE,pool_pre_ping=True)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine )
 
